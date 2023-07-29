@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Advertisements(models.Model):
+class Advertisement(models.Model):
 
     # Название товара
     #CharField - короткое текстовое поле
@@ -26,6 +26,13 @@ class Advertisements(models.Model):
     # Дата изменения/ обновления + что изменилось
     updated_at = models.DateTimeField(auto_now=True)
     
+    def __str__(self):
+        return f"Advertisement(id={self.id}, title={self.title}, price={self.price})"
+
+    class Meta:
+        db_table = 'advertisements'
+
+
     # Продавец (имя продавца, контакты для связи, отзывы)
 
     # Фото объявления
